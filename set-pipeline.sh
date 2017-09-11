@@ -28,11 +28,6 @@ if [ ! -e  $credentials ]; then
   exit
 fi
 
-cat $credentials > temp-config.yml
-cat $config >> temp-config.yml
-
-fly -t $concourse_target set-pipeline -c $pipeline -l temp-config.yml -p $pipeline_name -n
-
-rm temp-config.yml
+fly -t $concourse_target set-pipeline -c $pipeline -l $credentials -l $config -p $pipeline_name -n
 
 fly -t $concourse_target unpause-pipeline -p $pipeline_name
