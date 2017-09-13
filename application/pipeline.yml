@@ -52,7 +52,6 @@ jobs:
   - task: build
     file: ((build_task))
     params:
-      APP_NAME: ((app_name))
       JAR_NAME: ((jar_name))
   - put: artifact
     params:
