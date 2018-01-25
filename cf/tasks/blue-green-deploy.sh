@@ -50,6 +50,6 @@ for name in $app_names; do
       echo "deleting app... " $name
       cf delete $name -f
     fi
-    cf delete-route $CF_DOMAIN --hostname $green_app_route
+    cf delete-route $CF_DOMAIN --hostname $green_app_route -f
 done
 
